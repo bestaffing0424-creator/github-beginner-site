@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GitHubの基本を、簡単なウェブサイト作りで体験する入門ページです。">
+  <title>GitHub はじめの一歩</title>
+  <style>
+    :root { color-scheme: light; --ink: #202b46; --muted: #62708b; --blue: #3456d1; --pale: #f1f4ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fbfcff; color: var(--ink); font-family: "Yu Gothic", "Meiryo", sans-serif; line-height: 1.75; }
+    header { padding: 22px max(24px, calc((100% - 1040px)/2)); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e9ecf4; }
+    .brand { font-weight: 800; letter-spacing: .03em; } nav { display: flex; gap: 22px; } nav a { color: var(--muted); text-decoration: none; font-size: .93rem; }
+    main { max-width: 1040px; margin: 0 auto; padding: 68px 24px 80px; }
+    .hero { background: linear-gradient(135deg,#edf1ff,#faf0e8); border-radius: 28px; padding: 54px; }
+    .eyebrow { color: var(--blue); font-size: .82rem; font-weight: 800; letter-spacing: .12em; }
+    h1 { max-width: 650px; font-size: clamp(2.3rem,6vw,4.1rem); line-height: 1.18; margin: 14px 0; letter-spacing: -.04em; }
+    .lead { color: var(--muted); max-width: 600px; font-size: 1.1rem; }
+    .button { display: inline-block; margin-top: 16px; background: var(--blue); color: white; text-decoration: none; padding: 12px 20px; border-radius: 11px; font-weight: 700; }
+    section { margin-top: 62px; } h2 { font-size: 1.75rem; margin-bottom: 8px; } .intro { color: var(--muted); margin-top: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 24px; }
+    .card { background: white; border: 1px solid #e8ebf3; border-radius: 18px; padding: 22px; box-shadow: 0 8px 24px #26345b0a; }
+    .num { color: var(--blue); font-size: .8rem; font-weight: 800; letter-spacing: .1em; } .card h3 { margin: 6px 0; } .card p { color: var(--muted); margin: 0; }
+    .demo { background: #202b46; color: white; padding: 28px; border-radius: 18px; margin-top: 24px; }
+    .demo p { color: #dce2f1; margin: 0 0 12px; } .demo button { border: 0; background: #ffc96b; color: #252b3d; padding: 10px 16px; border-radius: 9px; font-weight: 800; cursor: pointer; }
+    #message { display: inline-block; margin-left: 12px; color: #bde8c6; }
+    footer { border-top: 1px solid #e9ecf4; color: var(--muted); text-align: center; padding: 26px; font-size: .9rem; }
+    @media(max-width:700px) { header { align-items: flex-start; gap: 12px; flex-direction: column; } nav { gap: 15px; flex-wrap: wrap; } main { padding-top: 32px; } .hero { padding: 32px 24px; } .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">GITHUB / はじめの一歩</div>
+    <nav aria-label="メインナビゲーション"><a href="#basics">基本のことば</a><a href="#try">ミニ体験</a></nav>
+  </header>
+  <main>
+    <div class="hero">
+      <div class="eyebrow">YOUR FIRST PROJECT</div>
+      <h1>小さく作って、<br>少しずつ育てよう。</h1>
+      <p class="lead">GitHubは、ウェブサイトやプログラムの変更を記録して、安心して共有するための場所です。このページを使って基本を見てみましょう。</p>
+      <a class="button" href="#basics">まず基本を知る ↓</a>
+    </div>
+    <section id="basics">
+      <h2>まず覚える3つのことば</h2>
+      <p class="intro">GitHubでの作業は「変更を記録して、共有する」の繰り返しです。</p>
+      <div class="cards">
+        <article class="card"><div class="num">01 / PROJECT</div><h3>リポジトリ</h3><p>ファイルと変更履歴をまとめて置く、プロジェクトの保管場所です。</p></article>
+        <article class="card"><div class="num">02 / SAVE POINT</div><h3>コミット</h3><p>「見出しを変えた」など、変更をひとまとまりにして記録することです。</p></article>
+        <article class="card"><div class="num">03 / SHARE</div><h3>プルリクエスト</h3><p>変更を本体に取り込む前に、内容を見せて確認や相談をする方法です。</p></article>
+      </div>
+    </section>
+    <section id="try">
+      <h2>このページでミニ体験</h2>
+      <p class="intro">ボタンを押すと、ページ上の文字が変わります。コードを少し変えると見た目が変わる、というウェブ制作の入り口です。</p>
+      <div class="demo"><p>準備ができたら、下のボタンを押してください。</p><button id="tryButton" type="button">押してみる</button><span id="message" aria-live="polite"></span></div>
+    </section>
+  </main>
+  <footer>最初の一歩、おつかれさまでした。変更を記録すると、いつでも前の状態を振り返れます。</footer>
+  <script>
+    document.querySelector('#tryButton').addEventListener('click', () => {
+      document.querySelector('#message').textContent = 'できました！これが小さな変更です。';
+    });
+  </script>
+</body>
+</html>
